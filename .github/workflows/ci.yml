@@ -1,0 +1,37 @@
+name: ci
+on: [push, pull_request]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:16
+        env: { POSTGRES_USER: kiosk, POSTGRES_PASSWORD: kiosk, POSTGRES_DB: kiosk }
+        ports: ["5432:5432"]
+        options: --health-cmd "pg_isready -U kiosk" --health-interval 5s --health-retries 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v6
+      - run: uv sync --frozen
+      - run: uv run ruff check src tests
+      - run: uv run ruff format --check src tests
+      - run: uv run mypy src
+      - name: Tests (SQLite)
+        run: uv run pytest -q
+      - name: Tests (Postgres)
+        run: uv run pytest -q tests/test_flows.py
+        env: { TEST_POSTGRES_URL: "postgresql+asyncpg://kiosk:kiosk@localhost:5432/kiosk" }
+      - name: Migrations match models
+        run: uv run alembic upgrade head && uv run alembic check
+        env: { DATABASE_URL: "postgresql+asyncpg://kiosk:kiosk@localhost:5432/kiosk" }
+
+  screens:
+    runs-on: ubuntu-latest
+    defaults: { run: { working-directory: frontend } }
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22, cache: npm, cache-dependency-path: frontend/package-lock.json }
+      - run: npm ci
+      - run: npm run build   # type-checks, then builds into src/kiosk/web/ui

@@ -1,0 +1,143 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1250" viewBox="0 0 1600 1250" font-family="-apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, Arial, sans-serif"><defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#3e4c59"/></marker></defs><rect width="1600" height="1250" fill="#ffffff"/>
+<text font-size="24" font-weight="750" fill="#1f2933" text-anchor="start" dominant-baseline="middle"><tspan x="40" y="38.0">AI Hospitality Kiosk Platform: multi-tenant system architecture</tspan></text>
+<text font-size="14" font-weight="400" fill="#52606d" text-anchor="start" dominant-baseline="middle"><tspan x="40" y="66.0">One codebase, two modes (APP_MODE=cloud | edge). All money in integer LKR cents.</tspan></text>
+<rect x="80" y="100" width="264" height="64" rx="10" fill="#fff8e6" stroke="#b7791f" stroke-width="1.6"/>
+<text font-size="15" font-weight="650" fill="#1f2933" text-anchor="middle" dominant-baseline="middle"><tspan x="212.0" y="123.0">Platform admin (you)</tspan></text>
+<text font-size="12" font-weight="400" fill="#52606d" text-anchor="middle" dominant-baseline="middle"><tspan x="212.0" y="144.8">tenants · plans · support</tspan></text>
+<rect x="374" y="100" width="264" height="64" rx="10" fill="#fff8e6" stroke="#b7791f" stroke-width="1.6"/>
+<text font-size="15" font-weight="650" fill="#1f2933" text-anchor="middle" dominant-baseline="middle"><tspan x="506.0" y="123.0">Admin portal (web)</tspan></text>
+<text font-size="12" font-weight="400" fill="#52606d" text-anchor="middle" dominant-baseline="middle"><tspan x="506.0" y="144.8">owner / manager per venue</tspan></text>
+<rect x="668" y="100" width="264" height="64" rx="10" fill="#fff8e6" stroke="#b7791f" stroke-width="1.6"/>
+<text font-size="15" font-weight="650" fill="#1f2933" text-anchor="middle" dominant-baseline="middle"><tspan x="800.0" y="123.0">Owner app (mobile)</tspan></text>
+<text font-size="12" font-weight="400" fill="#52606d" text-anchor="middle" dominant-baseline="middle"><tspan x="800.0" y="144.8">live sales · alerts · reports</tspan></text>
+<rect x="962" y="100" width="264" height="64" rx="10" fill="#f4f5f7" stroke="#7b8794" stroke-width="1.6" stroke-dasharray="6 5"/>
+<text font-size="15" font-weight="650" fill="#1f2933" text-anchor="middle" dominant-baseline="middle"><tspan x="1094.0" y="123.0">Email · push notifications</tspan></text>
+<text font-size="12" font-weight="400" fill="#52606d" text-anchor="middle" dominant-baseline="middle"><tspan x="1094.0" y="144.8">invites · owner alerts</tspan></text>
+<rect x="1256" y="100" width="264" height="64" rx="10" fill="#f4f5f7" stroke="#7b8794" stroke-width="1.6" stroke-dasharray="6 5"/>
+<text font-size="15" font-weight="650" fill="#1f2933" text-anchor="middle" dominant-baseline="middle"><tspan x="1388.0" y="123.0">LankaQR / card gateway</tspan></text>
+<text font-size="12" font-weight="400" fill="#52606d" text-anchor="middle" dominant-baseline="middle"><tspan x="1388.0" y="144.8">signed callbacks · refunds</tspan></text>
+<rect x="40" y="210" width="1520" height="440" rx="16" fill="#eef4fc" stroke="#2b6cb0" stroke-width="2.2"/>
+<text font-size="19" font-weight="750" fill="#1e4e8c" text-anchor="start" dominant-baseline="middle"><tspan x="64" y="626.0">CLOUD · multi-tenant</tspan></text>
+<text font-size="13" font-weight="400" fill="#52606d" text-anchor="start" dominant-baseline="middle"><tspan x="290" y="627.0">APP_MODE=cloud · central server · owns menu, tax, staff, devices, floor, plans</tspan></text>
+<rect x="80" y="285" width="264" height="90" rx="10" fill="#ffffff" stroke="#2b6cb0" stroke-width="1.6"/>
+<text font-size="15" font-weight="650" fill="#1f2933" text-anchor="middle" dominant-baseline="middle"><tspan x="212.0" y="317.4">Platform API</tspan></text>
+<text font-size="12" font-weight="400" fill="#52606d" text-anchor="middle" dominant-baseline="middle"><tspan x="212.0" y="340.8">tenants · plans ·</tspan><tspan x="212.0" y="355.2">subscriptions</tspan></text>
+<rect x="374" y="285" width="264" height="90" rx="10" fill="#ffffff" stroke="#2b6cb0" stroke-width="1.6"/>
+<text font-size="15" font-weight="650" fill="#1f2933" text-anchor="middle" dominant-baseline="middle"><tspan x="506.0" y="317.4">Tenant admin API</tspan></text>
+<text font-size="12" font-weight="400" fill="#52606d" text-anchor="middle" dominant-baseline="middle"><tspan x="506.0" y="340.8">venues · menu · tax · staff</tspan><tspan x="506.0" y="355.2">floor · printers · devices</tspan></text>
+<rect x="668" y="285" width="264" height="90" rx="10" fill="#ffffff" stroke="#2b6cb0" stroke-width="1.6"/>
+<text font-size="15" font-weight="650" fill="#1f2933" text-anchor="middle" dominant-baseline="middle"><tspan x="800.0" y="317.4">Owner API</tspan></text>
+<text font-size="12" font-weight="400" fill="#52606d" text-anchor="middle" dominant-baseline="middle"><tspan x="800.0" y="340.8">dashboards · multi-venue</tspan><tspan x="800.0" y="355.2">reports · alerts</tspan></text>
+<rect x="962" y="285" width="264" height="90" rx="10" fill="#ffffff" stroke="#2b6cb0" stroke-width="1.6"/>
+<text font-size="15" font-weight="650" fill="#1f2933" text-anchor="middle" dominant-baseline="middle"><tspan x="1094.0" y="317.4">Sync API</tspan></text>
+<text font-size="12" font-weight="400" fill="#52606d" text-anchor="middle" dominant-baseline="middle"><tspan x="1094.0" y="340.8">config down · ingest up</tspan><tspan x="1094.0" y="355.2">per-venue sync key</tspan></text>
+<rect x="1256" y="285" width="264" height="90" rx="10" fill="#ffffff" stroke="#2b6cb0" stroke-width="1.6"/>
+<text font-size="15" font-weight="650" fill="#1f2933" text-anchor="middle" dominant-baseline="middle"><tspan x="1388.0" y="317.4">Payments API</tspan></text>
+<text font-size="12" font-weight="400" fill="#52606d" text-anchor="middle" dominant-baseline="middle"><tspan x="1388.0" y="340.8">gateway callback</tspan><tspan x="1388.0" y="355.2">late-payment refunds</tspan></text>
+<rect x="80" y="392" width="1440" height="30" rx="6" fill="#dbe7f7" stroke="none"/>
+<text font-size="13" font-weight="600" fill="#1e4e8c" text-anchor="middle" dominant-baseline="middle"><tspan x="800" y="407.0">Tenant isolation: scoped dependency on every route (tenant_id / membership)  +  Postgres Row-Level Security backstop  +  require_feature(plan)</tspan></text>
+<rect x="80" y="440" width="560" height="72" rx="10" fill="#e6eefb" stroke="#2b6cb0" stroke-width="1.6"/>
+<text font-size="15" font-weight="650" fill="#1f2933" text-anchor="middle" dominant-baseline="middle"><tspan x="360.0" y="465.9">PostgreSQL · shared schema</tspan></text>
+<text font-size="12" font-weight="400" fill="#52606d" text-anchor="middle" dominant-baseline="middle"><tspan x="360.0" y="490.4">tenant_id on top-level + hot tables · RLS</tspan></text>
+<rect x="670" y="440" width="380" height="72" rx="10" fill="#e6eefb" stroke="#2b6cb0" stroke-width="1.6"/>
+<text font-size="15" font-weight="650" fill="#1f2933" text-anchor="middle" dominant-baseline="middle"><tspan x="860.0" y="465.9">Redis</tspan></text>
+<text font-size="12" font-weight="400" fill="#52606d" text-anchor="middle" dominant-baseline="middle"><tspan x="860.0" y="490.4">real-time pub/sub across API workers</tspan></text>
+<rect x="1080" y="440" width="440" height="72" rx="10" fill="#e6eefb" stroke="#2b6cb0" stroke-width="1.6"/>
+<text font-size="15" font-weight="650" fill="#1f2933" text-anchor="middle" dominant-baseline="middle"><tspan x="1300.0" y="465.9">Object storage (S3)</tspan></text>
+<text font-size="12" font-weight="400" fill="#52606d" text-anchor="middle" dominant-baseline="middle"><tspan x="1300.0" y="490.4">logos · menu images · kiosk media</tspan></text>
+<text font-size="12.5" font-weight="700" fill="#1e4e8c" text-anchor="start" dominant-baseline="middle"><tspan x="80" y="530.0">Tenancy hierarchy</tspan></text>
+<rect x="80.0" y="544" width="200" height="56" rx="10" fill="#ffffff" stroke="#9fb3c8" stroke-width="1.6"/>
+<text font-size="13" font-weight="650" fill="#1f2933" text-anchor="middle" dominant-baseline="middle"><tspan x="180.0" y="572.0">Platform</tspan></text>
+<rect x="328.0" y="544" width="200" height="56" rx="10" fill="#ffffff" stroke="#9fb3c8" stroke-width="1.6"/>
+<text font-size="13" font-weight="650" fill="#1f2933" text-anchor="middle" dominant-baseline="middle"><tspan x="428.0" y="564.2">Tenant</tspan><tspan x="428.0" y="579.8">(company · plan)</tspan></text>
+<line x1="284.0" y1="572" x2="324.0" y2="572" stroke="#3e4c59" stroke-width="2" marker-end="url(#a)"/>
+<rect x="576.0" y="544" width="200" height="56" rx="10" fill="#ffffff" stroke="#9fb3c8" stroke-width="1.6"/>
+<text font-size="13" font-weight="650" fill="#1f2933" text-anchor="middle" dominant-baseline="middle"><tspan x="676.0" y="564.2">Venue</tspan><tspan x="676.0" y="579.8">(branch)</tspan></text>
+<line x1="532.0" y1="572" x2="572.0" y2="572" stroke="#3e4c59" stroke-width="2" marker-end="url(#a)"/>
+<rect x="824.0" y="544" width="200" height="56" rx="10" fill="#ffffff" stroke="#9fb3c8" stroke-width="1.6"/>
+<text font-size="13" font-weight="650" fill="#1f2933" text-anchor="middle" dominant-baseline="middle"><tspan x="924.0" y="564.2">Stations · Tables</tspan><tspan x="924.0" y="579.8">Printers</tspan></text>
+<line x1="780.0" y1="572" x2="820.0" y2="572" stroke="#3e4c59" stroke-width="2" marker-end="url(#a)"/>
+<rect x="1072.0" y="544" width="200" height="56" rx="10" fill="#ffffff" stroke="#9fb3c8" stroke-width="1.6"/>
+<text font-size="13" font-weight="650" fill="#1f2933" text-anchor="middle" dominant-baseline="middle"><tspan x="1172.0" y="564.2">Devices</tspan><tspan x="1172.0" y="579.8">(+ profile)</tspan></text>
+<line x1="1028.0" y1="572" x2="1068.0" y2="572" stroke="#3e4c59" stroke-width="2" marker-end="url(#a)"/>
+<rect x="1320.0" y="544" width="200" height="56" rx="10" fill="#ffffff" stroke="#9fb3c8" stroke-width="1.6"/>
+<text font-size="13" font-weight="650" fill="#1f2933" text-anchor="middle" dominant-baseline="middle"><tspan x="1420.0" y="564.2">Staff · Menu</tspan><tspan x="1420.0" y="579.8">Tax rules</tspan></text>
+<line x1="1276.0" y1="572" x2="1316.0" y2="572" stroke="#3e4c59" stroke-width="2" marker-end="url(#a)"/>
+<line x1="212" y1="164" x2="212" y2="285" stroke="#3e4c59" stroke-width="2" marker-end="url(#a)"/>
+<line x1="506" y1="164" x2="506" y2="285" stroke="#3e4c59" stroke-width="2" marker-end="url(#a)"/>
+<line x1="800" y1="164" x2="800" y2="285" stroke="#3e4c59" stroke-width="2" marker-end="url(#a)"/>
+<line x1="1388" y1="164" x2="1388" y2="285" stroke="#3e4c59" stroke-width="2" marker-start="url(#a)" marker-end="url(#a)"/>
+<line x1="1094" y1="210" x2="1094" y2="164" stroke="#3e4c59" stroke-width="2" stroke-dasharray="7 5" marker-end="url(#a)"/>
+<text font-size="12" font-weight="500" fill="#52606d" text-anchor="start" dominant-baseline="middle"><tspan x="1106" y="188.0">notify</tspan></text>
+<rect x="40" y="760" width="1000" height="420" rx="16" fill="#eefaf3" stroke="#2f855a" stroke-width="2.2"/>
+<text font-size="19" font-weight="750" fill="#22543d" text-anchor="start" dominant-baseline="middle"><tspan x="64" y="788.0">VENUE A · EDGE mode</tspan></text>
+<text font-size="13" font-weight="400" fill="#52606d" text-anchor="start" dominant-baseline="middle"><tspan x="64" y="812.0">Mini-PC in the venue · APP_MODE=edge · single venue · keeps working with no internet</tspan></text>
+<rect x="80" y="835" width="164" height="84" rx="10" fill="#ffffff" stroke="#2f855a" stroke-width="1.6"/>
+<text font-size="14" font-weight="650" fill="#1f2933" text-anchor="middle" dominant-baseline="middle"><tspan x="162.0" y="865.2">Order engine</tspan></text>
+<text font-size="12" font-weight="400" fill="#52606d" text-anchor="middle" dominant-baseline="middle"><tspan x="162.0" y="886.6">pricing · tokens</tspan><tspan x="162.0" y="901.0">state machine</tspan></text>
+<rect x="269" y="835" width="164" height="84" rx="10" fill="#ffffff" stroke="#2f855a" stroke-width="1.6"/>
+<text font-size="14" font-weight="650" fill="#1f2933" text-anchor="middle" dominant-baseline="middle"><tspan x="351.0" y="865.2">KDS · status</tspan></text>
+<text font-size="12" font-weight="400" fill="#52606d" text-anchor="middle" dominant-baseline="middle"><tspan x="351.0" y="886.6">stations · bump</tspan><tspan x="351.0" y="901.0">recall · ready</tspan></text>
+<rect x="458" y="835" width="164" height="84" rx="10" fill="#ffffff" stroke="#2f855a" stroke-width="1.6"/>
+<text font-size="14" font-weight="650" fill="#1f2933" text-anchor="middle" dominant-baseline="middle"><tspan x="540.0" y="865.2">Payments</tspan></text>
+<text font-size="12" font-weight="400" fill="#52606d" text-anchor="middle" dominant-baseline="middle"><tspan x="540.0" y="886.6">cash · card · QR</tspan><tspan x="540.0" y="901.0">shifts · invoices</tspan></text>
+<rect x="647" y="835" width="164" height="84" rx="10" fill="#ffffff" stroke="#2f855a" stroke-width="1.6"/>
+<text font-size="14" font-weight="650" fill="#1f2933" text-anchor="middle" dominant-baseline="middle"><tspan x="729.0" y="865.2">Printing</tspan></text>
+<text font-size="12" font-weight="400" fill="#52606d" text-anchor="middle" dominant-baseline="middle"><tspan x="729.0" y="886.6">ESC/POS receipts</tspan><tspan x="729.0" y="901.0">kitchen tickets</tspan></text>
+<rect x="836" y="835" width="164" height="84" rx="10" fill="#ffffff" stroke="#2f855a" stroke-width="1.6"/>
+<text font-size="14" font-weight="650" fill="#1f2933" text-anchor="middle" dominant-baseline="middle"><tspan x="918.0" y="865.2">WebSocket hub</tspan></text>
+<text font-size="12" font-weight="400" fill="#52606d" text-anchor="middle" dominant-baseline="middle"><tspan x="918.0" y="886.6">seq + epoch</tspan><tspan x="918.0" y="901.0">replay buffer</tspan></text>
+<rect x="80" y="935" width="920" height="48" rx="10" fill="#dcf2e5" stroke="#2f855a" stroke-width="1.6"/>
+<text font-size="14" font-weight="650" fill="#1f2933" text-anchor="middle" dominant-baseline="middle"><tspan x="540.0" y="959.0">Local DB + transactional outbox</tspan></text>
+<text font-size="1" font-weight="400" fill="#1f2933" text-anchor="middle" dominant-baseline="middle"><tspan x="540" y="972.0"></tspan></text>
+<rect x="80" y="1070" width="116" height="70" rx="10" fill="#ffffff" stroke="#7b8794" stroke-width="1.6"/>
+<text font-size="12.5" font-weight="650" fill="#1f2933" text-anchor="middle" dominant-baseline="middle"><tspan x="138.0" y="1105.0">Cashier</tspan></text>
+<rect x="213" y="1070" width="116" height="70" rx="10" fill="#ffffff" stroke="#7b8794" stroke-width="1.6"/>
+<text font-size="12.5" font-weight="650" fill="#1f2933" text-anchor="middle" dominant-baseline="middle"><tspan x="271.0" y="1097.5">KDS</tspan><tspan x="271.0" y="1112.5">(per station)</tspan></text>
+<rect x="346" y="1070" width="116" height="70" rx="10" fill="#ffffff" stroke="#7b8794" stroke-width="1.6"/>
+<text font-size="12.5" font-weight="650" fill="#1f2933" text-anchor="middle" dominant-baseline="middle"><tspan x="404.0" y="1097.5">Status board</tspan><tspan x="404.0" y="1112.5">(main screen)</tspan></text>
+<rect x="479" y="1070" width="116" height="70" rx="10" fill="#ffffff" stroke="#7b8794" stroke-width="1.6"/>
+<text font-size="12.5" font-weight="650" fill="#1f2933" text-anchor="middle" dominant-baseline="middle"><tspan x="537.0" y="1097.5">Self-checkout</tspan><tspan x="537.0" y="1112.5">kiosk</tspan></text>
+<rect x="612" y="1070" width="116" height="70" rx="10" fill="#ffffff" stroke="#7b8794" stroke-width="1.6"/>
+<text font-size="12.5" font-weight="650" fill="#1f2933" text-anchor="middle" dominant-baseline="middle"><tspan x="670.0" y="1097.5">Table tablet</tspan><tspan x="670.0" y="1112.5">(calibrated)</tspan></text>
+<rect x="745" y="1070" width="116" height="70" rx="10" fill="#ffffff" stroke="#7b8794" stroke-width="1.6"/>
+<text font-size="12.5" font-weight="650" fill="#1f2933" text-anchor="middle" dominant-baseline="middle"><tspan x="803.0" y="1097.5">Waiter</tspan><tspan x="803.0" y="1112.5">handheld</tspan></text>
+<rect x="878" y="1070" width="116" height="70" rx="10" fill="#ffffff" stroke="#7b8794" stroke-width="1.6"/>
+<text font-size="12.5" font-weight="650" fill="#1f2933" text-anchor="middle" dominant-baseline="middle"><tspan x="936.0" y="1097.5">Printers</tspan><tspan x="936.0" y="1112.5">(receipt · kitchen)</tspan></text>
+<line x1="300" y1="1070" x2="300" y2="985" stroke="#2f855a" stroke-width="2" marker-start="url(#a)" marker-end="url(#a)"/>
+<line x1="760" y1="1070" x2="760" y2="985" stroke="#2f855a" stroke-width="2" marker-start="url(#a)" marker-end="url(#a)"/>
+<text font-size="12.5" font-weight="500" fill="#22543d" text-anchor="start" dominant-baseline="middle"><tspan x="318" y="1027.0">LAN · REST + WebSocket (X-Device-Token + staff PIN session)</tspan></text>
+<rect x="1080" y="760" width="480" height="420" rx="16" fill="#f5f0fc" stroke="#6b46c1" stroke-width="2.2"/>
+<text font-size="19" font-weight="750" fill="#44337a" text-anchor="start" dominant-baseline="middle"><tspan x="1104" y="788.0">VENUE B · CLOUD-DIRECT</tspan></text>
+<text font-size="13" font-weight="400" fill="#52606d" text-anchor="start" dominant-baseline="middle"><tspan x="1104" y="812.0">Small café, no mini-PC · devices talk to the cloud</tspan></text>
+<text font-size="14" font-weight="500" fill="#44337a" text-anchor="middle" dominant-baseline="middle"><tspan x="1320.0" y="871.6">Same device screens,</tspan><tspan x="1320.0" y="888.4">same pairing + calibration flow</tspan></text>
+<text font-size="13" font-weight="400" fill="#52606d" text-anchor="middle" dominant-baseline="middle"><tspan x="1320.0" y="952.2">Needs internet during service</tspan><tspan x="1320.0" y="967.8">Real-time via Redis hub</tspan></text>
+<rect x="1100" y="1070" width="101" height="70" rx="10" fill="#ffffff" stroke="#7b8794" stroke-width="1.6"/>
+<text font-size="12.5" font-weight="650" fill="#1f2933" text-anchor="middle" dominant-baseline="middle"><tspan x="1150.5" y="1105.0">Cashier</tspan></text>
+<rect x="1213" y="1070" width="101" height="70" rx="10" fill="#ffffff" stroke="#7b8794" stroke-width="1.6"/>
+<text font-size="12.5" font-weight="650" fill="#1f2933" text-anchor="middle" dominant-baseline="middle"><tspan x="1263.5" y="1105.0">KDS</tspan></text>
+<rect x="1326" y="1070" width="101" height="70" rx="10" fill="#ffffff" stroke="#7b8794" stroke-width="1.6"/>
+<text font-size="12.5" font-weight="650" fill="#1f2933" text-anchor="middle" dominant-baseline="middle"><tspan x="1376.5" y="1097.5">Status</tspan><tspan x="1376.5" y="1112.5">board</tspan></text>
+<rect x="1439" y="1070" width="101" height="70" rx="10" fill="#ffffff" stroke="#7b8794" stroke-width="1.6"/>
+<text font-size="12.5" font-weight="650" fill="#1f2933" text-anchor="middle" dominant-baseline="middle"><tspan x="1489.5" y="1097.5">Table</tspan><tspan x="1489.5" y="1112.5">tablet</tspan></text>
+<line x1="380" y1="650" x2="380" y2="760" stroke="#3e4c59" stroke-width="2" marker-end="url(#a)"/>
+<line x1="660" y1="760" x2="660" y2="650" stroke="#3e4c59" stroke-width="2" marker-end="url(#a)"/>
+<text font-size="12.5" font-weight="500" fill="#1e4e8c" text-anchor="start" dominant-baseline="middle"><tspan x="392" y="690.0">config ↓  menu · tax · staff · devices ·</tspan></text>
+<text font-size="12.5" font-weight="500" fill="#1e4e8c" text-anchor="start" dominant-baseline="middle"><tspan x="392" y="708.0">stations · tables · printers · plan features</tspan></text>
+<text font-size="12.5" font-weight="500" fill="#22543d" text-anchor="start" dominant-baseline="middle"><tspan x="672" y="690.0">outbox ↑  orders · invoices · shifts ·</tspan></text>
+<text font-size="12.5" font-weight="500" fill="#22543d" text-anchor="start" dominant-baseline="middle"><tspan x="672" y="708.0">sold-out · device paired / health</tspan></text>
+<text font-size="11.5" font-weight="500" fill="#52606d" text-anchor="start" dominant-baseline="middle"><tspan x="392" y="735.0">versioned pull when behind</tspan></text>
+<text font-size="11.5" font-weight="500" fill="#52606d" text-anchor="start" dominant-baseline="middle"><tspan x="672" y="735.0">idempotent, safe to resend</tspan></text>
+<line x1="1320" y1="760" x2="1320" y2="650" stroke="#6b46c1" stroke-width="2" marker-start="url(#a)" marker-end="url(#a)"/>
+<text font-size="12.5" font-weight="500" fill="#44337a" text-anchor="start" dominant-baseline="middle"><tspan x="1332" y="698.0">Internet · REST + WebSocket</tspan></text>
+<rect x="40" y="1206" width="22" height="18" rx="4" fill="#fff8e6" stroke="#b7791f" stroke-width="1.6"/>
+<text font-size="12.5" font-weight="400" fill="#52606d" text-anchor="start" dominant-baseline="middle"><tspan x="70" y="1215.0">People / apps</tspan></text>
+<rect x="197.60000000000002" y="1206" width="22" height="18" rx="4" fill="#f4f5f7" stroke="#7b8794" stroke-width="1.6" stroke-dasharray="4 3"/>
+<text font-size="12.5" font-weight="400" fill="#52606d" text-anchor="start" dominant-baseline="middle"><tspan x="227.60000000000002" y="1215.0">External service</tspan></text>
+<rect x="376.8" y="1206" width="22" height="18" rx="4" fill="#ffffff" stroke="#2b6cb0" stroke-width="1.6"/>
+<text font-size="12.5" font-weight="400" fill="#52606d" text-anchor="start" dominant-baseline="middle"><tspan x="406.8" y="1215.0">Cloud component</tspan></text>
+<rect x="548.8" y="1206" width="22" height="18" rx="4" fill="#ffffff" stroke="#2f855a" stroke-width="1.6"/>
+<text font-size="12.5" font-weight="400" fill="#52606d" text-anchor="start" dominant-baseline="middle"><tspan x="578.8" y="1215.0">Edge component</tspan></text>
+<rect x="713.5999999999999" y="1206" width="22" height="18" rx="4" fill="#ffffff" stroke="#7b8794" stroke-width="1.6"/>
+<text font-size="12.5" font-weight="400" fill="#52606d" text-anchor="start" dominant-baseline="middle"><tspan x="743.5999999999999" y="1215.0">Device screen (one shell app, renders by device type)</tspan></text>
+</svg>

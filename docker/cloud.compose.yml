@@ -1,0 +1,30 @@
+# Cloud backend: admin API, reports, and sync endpoints for all venues.
+# In production put this behind HTTPS (a load balancer or Caddy/Nginx).
+services:
+  db:
+    image: postgres:16
+    restart: always
+    environment:
+      POSTGRES_USER: kiosk
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-kiosk}
+      POSTGRES_DB: kiosk
+    volumes: [cloud_pg:/var/lib/postgresql/data]
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U kiosk"]
+      interval: 5s
+      retries: 10
+
+  api:
+    build: ..
+    restart: always
+    depends_on:
+      db: { condition: service_healthy }
+    env_file: ../.env
+    environment:
+      APP_MODE: cloud
+      RUN_BACKGROUND_JOBS: "false"
+      DATABASE_URL: postgresql+asyncpg://kiosk:${POSTGRES_PASSWORD:-kiosk}@db:5432/kiosk
+    ports: ["9000:8000"]
+
+volumes:
+  cloud_pg:

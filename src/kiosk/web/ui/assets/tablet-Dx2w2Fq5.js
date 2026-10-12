@@ -1,0 +1,1 @@
+import{d as e}from"./screens-BaHnpeAc.js";const n={name:"chevron-down",size:24,node:[["path",{d:"m6 9 6 6 6-6",key:"qrunsl"}]]};n.node;const a=e(n);const o={name:"tablet",size:24,node:[["rect",{width:"16",height:"20",x:"4",y:"2",rx:"2",ry:"2",key:"76otgf"}],["line",{x1:"12",x2:"12.01",y1:"18",y2:"18",key:"1dp563"}]]};o.node;const c=e(o);export{a as C,c as T};

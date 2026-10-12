@@ -1,0 +1,116 @@
+# Production on one server: Postgres + the app + Caddy (HTTPS) + nightly backups.
+# Run from this folder:  docker compose up -d --build
+# Settings come from ./.env (made by setup.sh; never commit it).
+services:
+  db:
+    image: postgres:16
+    restart: always
+    environment:
+      POSTGRES_USER: kiosk
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?set POSTGRES_PASSWORD in .env}
+      POSTGRES_DB: kiosk
+    volumes: [pg:/var/lib/postgresql/data]
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U kiosk"]
+      interval: 5s
+      retries: 20
+
+  app:
+    build: ..
+    restart: always
+    depends_on:
+      db: { condition: service_healthy }
+    env_file: .env
+    environment:
+      APP_MODE: cloud
+      ENV: prod
+      RUN_BACKGROUND_JOBS: "true"
+      DATABASE_URL: postgresql+asyncpg://kiosk:${POSTGRES_PASSWORD}@db:5432/kiosk
+      PUBLIC_URL: https://${DOMAIN}
+      ADMIN_HOST: ${ADMIN_DOMAIN:?set ADMIN_DOMAIN in .env}
+      MEDIA_DIR: /app/media
+      PRINT_DIR: /app/prints
+      # Caddy sits in front: trust its X-Forwarded-For (it passes the visitor's real address on).
+      FORWARDED_ALLOW_IPS: "*"
+    volumes:
+      - media:/app/media
+      - prints:/app/prints
+    expose: ["8000"]
+
+  # The public demo (demo.<domain>): the same app with the demo restaurant, test payments and /try.
+  # Its own data, kept inside the container: every restart (and every night at 04:00) starts fresh.
+  # Never shares the restaurants' database or secrets. On with COMPOSE_PROFILES=demo in .env.
+  demo:
+    build: ..
+    profiles: ["demo"]
+    restart: always
+    environment:
+      APP_MODE: cloud
+      ENV: dev
+      DEMO_MODE: "true"
+      RUN_BACKGROUND_JOBS: "true"
+      DATABASE_URL: sqlite+aiosqlite:////tmp/demo.db
+      JWT_SECRET: ${DEMO_JWT_SECRET:-demo-secret-not-for-restaurants}
+      PUBLIC_URL: https://${DEMO_DOMAIN:-demo.localhost}
+      COMING_SOON: ""
+      CORS_ORIGINS: "*"
+      MEDIA_DIR: /tmp/media
+      PRINT_DIR: /tmp/prints
+      FORWARDED_ALLOW_IPS: "*"
+    entrypoint: ["/bin/sh", "-c"]
+    command:
+      - |
+        rm -f /tmp/demo.db
+        uv run --no-sync kiosk initdb && uv run --no-sync kiosk seed
+        uv run --no-sync kiosk serve --host 0.0.0.0 --port 8000 &
+        app=$$!
+        while kill -0 $$app 2>/dev/null; do
+          [ "$$(date +%H%M)" = "0400" ] && { echo "nightly demo reset"; kill $$app; exit 0; }
+          sleep 30
+        done
+    expose: ["8000"]
+
+  caddy:
+    image: caddy:2
+    restart: always
+    depends_on: [app]
+    environment:
+      DOMAIN: ${DOMAIN}
+      ADMIN_DOMAIN: ${ADMIN_DOMAIN}
+      DEMO_DOMAIN: ${DEMO_DOMAIN:-demo.localhost}
+      ACME_EMAIL: ${ACME_EMAIL}
+    ports: ["80:80", "443:443"]
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy_data:/data
+      - caddy_config:/config
+
+  backup:
+    image: postgres:16
+    restart: always
+    depends_on:
+      db: { condition: service_healthy }
+    environment:
+      PGPASSWORD: ${POSTGRES_PASSWORD}
+    volumes: [./backups:/backups]
+    # Every night at about 03:00 server time: a full dump; keep the last 14.
+    entrypoint: ["/bin/sh", "-c"]
+    command:
+      - |
+        while true; do
+          now=$$(date +%H%M)
+          if [ "$$now" = "0300" ]; then
+            f=/backups/kiosk-$$(date +%Y%m%d-%H%M).sql.gz
+            pg_dump -h db -U kiosk kiosk | gzip > "$$f" && echo "backup $$f"
+            ls -1t /backups/kiosk-*.sql.gz | tail -n +15 | xargs -r rm --
+            sleep 61
+          fi
+          sleep 30
+        done
+
+volumes:
+  pg:
+  media:
+  prints:
+  caddy_data:
+  caddy_config:

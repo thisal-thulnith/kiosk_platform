@@ -1,0 +1,32 @@
+# One per venue, on the edge mini-PC. Keeps orders and the KDS running without internet.
+#   cp .env.example .env   # set VENUE_ID, CLOUD_URL, CLOUD_SYNC_KEY, secrets
+#   docker compose -f docker/edge.compose.yml up -d
+services:
+  db:
+    image: postgres:16
+    restart: always
+    environment:
+      POSTGRES_USER: kiosk
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-kiosk}
+      POSTGRES_DB: kiosk
+    volumes: [edge_pg:/var/lib/postgresql/data]
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U kiosk"]
+      interval: 5s
+      retries: 10
+
+  api:
+    build: ..
+    restart: always
+    depends_on:
+      db: { condition: service_healthy }
+    env_file: ../.env
+    environment:
+      APP_MODE: edge
+      DATABASE_URL: postgresql+asyncpg://kiosk:${POSTGRES_PASSWORD:-kiosk}@db:5432/kiosk
+    ports: ["8000:8000"]
+    volumes: [edge_prints:/app/prints]
+
+volumes:
+  edge_pg:
+  edge_prints:
